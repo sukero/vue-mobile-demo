@@ -1,0 +1,36 @@
+/* ========== RESET 改进默认样式 ==========*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Microsoft Yahei', sans-serif;
+}
+ul,li {
+  list-style: none;
+}
+input, button, select {
+  border: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+textarea {
+  resize: none;
+}
+
+/* ========== FLOAT 浮动 ==========*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clr {
+  clear: both;
+}
+
+/* ========== FONT 字体 ==========*/
+body {
+  font-family: 'Microsoft Yahei', sans-serif;
+}
