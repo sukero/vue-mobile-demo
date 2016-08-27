@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.cart
+  div.cart(@click='onClickMe')
     header
       div.fl
         i.fa.fa-reorder
@@ -9,7 +9,7 @@
       div.header-title
         span Your Cart
       div.clr
-    section
+    section(v-bind:class="{on: cartOn}")
       ul.items
         li(v-for="cartItem in cartItems").item-holder
           div.item-holder-wrapper
@@ -52,31 +52,38 @@
           { title: 'Muffin Dress', size: 'S', price: '25,00', pic: 'background-image:url(src/assets/images/product-05.jpg)'},
           { title: 'Gorgeus Red Cap', size: '7', price: '112,00', pic: 'background-image:url(src/assets/images/product-05.jpg)'},
           { title: 'Black Trainers', size: '9.5', price: '78,00', pic: 'background-image:url(src/assets/images/product-05.jpg)'}
-        ]
+        ],
+        cartOn: false
       }
     },
-    ready () {
-      this.$nextTick(()=>{
-
-        // 点击购物车图标，出现购物车
-        $('.fa-shopping-cart').click(function () {
-          $('.cart header').css('display', 'block');
-          $('.cart section').css({
-            'display': 'block',
-            'top': 50+'px'
-          });
-        });
-
-        // 点击close，关闭购物车
-        $('.cart .fa-close').click(function () {
-          $('.cart header').css('display', 'none');
-          $('.cart section').css({
-            'top': -$('.cart section').height()+'px'
-          })
-        });
-
-      })
+    props: [''],
+    methods: {
+      onClickMe: function () {
+        this.$emit('child-tell', this.cartOn);
+      }
     }
+    // ready () {
+    //   this.$nextTick(()=>{
+    //
+    //     // 点击购物车图标，出现购物车
+    //     $('.fa-shopping-cart').click(function () {
+    //       // $('.cart header').css('display', 'block');
+    //       $('.cart section').css({
+    //         'display': 'block',
+    //         'top': 50+'px'
+    //       });
+    //     });
+    //
+    //     // 点击close，关闭购物车
+    //     $('.cart .fa-close').click(function () {
+    //       // $('.cart header').css('display', 'none');
+    //       $('.cart section').css({
+    //         'top': -$('.cart section').height()+'px'
+    //       })
+    //     });
+    //
+    //   })
+    // }
   }
 </script>
 

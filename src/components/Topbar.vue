@@ -3,12 +3,36 @@
     div.fl
       i.fa.fa-reorder
     div.fr
-      i.fa.fa-shopping-cart
+      i.fa.fa-shopping-cart(@child-tell='listentomyboy')
       i.fa.fa-tag
     div.topbar-title
       span eCommerce
     div.clr
+  // 购物车
+  Cart(v-bind:class="{on: cartOn}")
 </template>
+
+<script>
+  import Cart from './Cart.vue'
+  export default {
+    name: 'Topbar',
+    components: {
+      Cart
+    },
+    data () {
+      return {
+        cartOn: false
+      }
+    },
+    methods: {
+      listentomyboy: function () {
+        this.cartOn = !this.cartOn;
+
+        console.log(this.cartOn);
+      }
+    }
+  }
+</script>
 
 <style lang="sass">
   @import "../assets/scss/reset.scss";

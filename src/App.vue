@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Topbar></Topbar>
     <Home></Home>
   </div>
 </template>Topbar

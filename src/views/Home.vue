@@ -1,4 +1,5 @@
 <template lang="pug">
+  topbar
   // 主页
   div.swiper-container
     div.swiper-wrapper
@@ -37,22 +38,20 @@
       a(href="#") View all Items
   // 左侧滑菜单
   <Sidebar></Sidebar>
-  // 购物车
-  <Cart></Cart>
   // 标签分类
   <Tag></Tag>
 </template>
 
 <script>
   import swiper from '../assets/js/lib/swiper.min.js'
+  import Topbar from '../components/Topbar.vue'
   import Sidebar from '../components/Sidebar.vue'
-  import Cart from '../components/Cart.vue'
   import Tag from '../components/Tag.vue'
 
   export default {
     components: {
+      Topbar,
       Sidebar,
-      Cart,
       Tag
     },
     data() {
